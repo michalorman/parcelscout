@@ -1,5 +1,8 @@
 package pl.michalorman.spu.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("parcel")
 public class Parcel {
 
 	private String id;

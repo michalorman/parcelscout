@@ -2,3 +2,10 @@ target/
 .settings/
 .project
 .classpath
+*.war
+*~
+log/
+logs/
+*.log
+*.out
+webapps/
