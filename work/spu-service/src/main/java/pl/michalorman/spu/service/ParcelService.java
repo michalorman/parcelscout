@@ -1,7 +1,10 @@
 package pl.michalorman.spu.service;
 
+import org.springframework.stereotype.Service;
+
 import pl.michalorman.spu.model.Parcel;
 
+@Service
 public class ParcelService {
 
 	public Parcel getParcel(String parcelId) {
