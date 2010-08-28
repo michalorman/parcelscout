@@ -12,7 +12,7 @@
 	
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
 
-	<bean id="responseXmlView"
+	<bean id="parcelXmlView"
 		class="org.springframework.web.servlet.view.xml.MarshallingView">
 		<constructor-arg>
 			<bean class="org.springframework.oxm.xstream.XStreamMarshaller">
