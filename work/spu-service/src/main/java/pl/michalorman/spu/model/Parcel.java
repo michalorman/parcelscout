@@ -5,17 +5,17 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 @XStreamAlias("parcel")
 public class Parcel {
 
-	private String id;
+	private Integer id;
 
 	private String latitude;
 
 	private String longitude;
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
