@@ -15,7 +15,7 @@ public class PackageTrackService {
 		position.setLongitude(14.529);
 
 		Package parcel = new Package();
-		parcel.setId(1);
+		parcel.setId(parcelId);
 		parcel.setPosition(position);
 
 		TrackResponse response = new TrackResponse();

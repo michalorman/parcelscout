@@ -20,5 +20,7 @@
 			</bean>
 		</constructor-arg>
 	</bean>
+	
+	<bean id="responseJsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
 
 </beans>
