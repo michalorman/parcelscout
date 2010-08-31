@@ -4,26 +4,26 @@ import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
 public class Position {
 
-	@XStreamAsAttribute
-	private Double latitude;
+    @XStreamAsAttribute
+    private Double latitude;
 
-	@XStreamAsAttribute
-	private Double longitude;
+    @XStreamAsAttribute
+    private Double longitude;
 
-	public void setLatitude(Double latitude) {
-		this.latitude = latitude;
-	}
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
 
-	public Double getLatitude() {
-		return latitude;
-	}
+    public Double getLatitude() {
+        return latitude;
+    }
 
-	public void setLongitude(Double longitude) {
-		this.longitude = longitude;
-	}
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 
-	public Double getLongitude() {
-		return longitude;
-	}
+    public Double getLongitude() {
+        return longitude;
+    }
 
 }

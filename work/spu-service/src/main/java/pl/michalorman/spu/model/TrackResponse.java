@@ -6,26 +6,26 @@ import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 @XStreamAlias("response")
 public class TrackResponse {
 
-	@XStreamAsAttribute
-	private Integer status = 101;
+    @XStreamAsAttribute
+    private Integer status = 101;
 
-	@XStreamAlias("package")
-	private Package parcel;
+    @XStreamAlias("package")
+    private Package parcel;
 
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
-	public Integer getStatus() {
-		return status;
-	}
+    public Integer getStatus() {
+        return status;
+    }
 
-	public void setPackage(Package parcel) {
-		this.parcel = parcel;
-	}
+    public void setPackage(Package parcel) {
+        this.parcel = parcel;
+    }
 
-	public Package getPackage() {
-		return parcel;
-	}
+    public Package getPackage() {
+        return parcel;
+    }
 
 }

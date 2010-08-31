@@ -9,19 +9,19 @@ import pl.michalorman.spu.model.TrackResponse;
 @Service
 public class PackageTrackService {
 
-	public TrackResponse getTrackInfo(Integer parcelId) {
-		Position position = new Position();
-		position.setLatitude(53.43);
-		position.setLongitude(14.529);
+    public TrackResponse getTrackInfo(Integer parcelId) {
+        Position position = new Position();
+        position.setLatitude(53.43);
+        position.setLongitude(14.529);
 
-		Package parcel = new Package();
-		parcel.setId(parcelId);
-		parcel.setPosition(position);
+        Package parcel = new Package();
+        parcel.setId(parcelId);
+        parcel.setPosition(position);
 
-		TrackResponse response = new TrackResponse();
-		response.setPackage(parcel);
+        TrackResponse response = new TrackResponse();
+        response.setPackage(parcel);
 
-		return response;
-	}
+        return response;
+    }
 
 }

@@ -13,42 +13,42 @@ import pl.michalorman.spu.service.PackageTrackService;
 @Controller
 public class PackageController {
 
-	@Autowired
-	private PackageTrackService parcelService;
+    @Autowired
+    private PackageTrackService parcelService;
 
-	//-----------------------------------------
-	//	Resolve response format by extension
-	//-----------------------------------------
+    //-----------------------------------------
+    //	Resolve response format by extension
+    //-----------------------------------------
 
-	@RequestMapping(value = "/track.xml", method = RequestMethod.GET)
-	public String getPackagePositionInXml(@RequestParam Integer packageId, Model model) {
-		addPackageToModel(packageId, model);
-		return "responseXmlView";
-	}
+    @RequestMapping(value = "/track.xml", method = RequestMethod.GET)
+    public String getPackagePositionInXml(@RequestParam Integer packageId, Model model) {
+        addPackageToModel(packageId, model);
+        return "responseXmlView";
+    }
 
-	@RequestMapping(value = "/track.json", method = RequestMethod.GET)
-	public String getPackagePositionInJson(@RequestParam Integer packageId, Model model) {
-		addPackageToModel(packageId, model);
-		return "responseJsonView";
-	}
+    @RequestMapping(value = "/track.json", method = RequestMethod.GET)
+    public String getPackagePositionInJson(@RequestParam Integer packageId, Model model) {
+        addPackageToModel(packageId, model);
+        return "responseJsonView";
+    }
 
-	//--------------------------------------------
-	//	Resolve response format by Content-Type
-	//--------------------------------------------
+    //--------------------------------------------
+    //	Resolve response format by Content-Type
+    //--------------------------------------------
 
-	@RequestMapping(value = "/track", method = RequestMethod.GET, headers = "content-type=application/xml")
-	public String trackPackagePositionInXml(@RequestParam Integer packageId, Model model) {
-		return getPackagePositionInXml(packageId, model);
-	}
+    @RequestMapping(value = "/track", method = RequestMethod.GET, headers = "content-type=application/xml")
+    public String trackPackagePositionInXml(@RequestParam Integer packageId, Model model) {
+        return getPackagePositionInXml(packageId, model);
+    }
 
-	@RequestMapping(value = "/track", method = RequestMethod.GET, headers = "content-type=application/json")
-	public String trackPackagePositionInJson(@RequestParam Integer packageId, Model model) {
-		return getPackagePositionInJson(packageId, model);
-	}
+    @RequestMapping(value = "/track", method = RequestMethod.GET, headers = "content-type=application/json")
+    public String trackPackagePositionInJson(@RequestParam Integer packageId, Model model) {
+        return getPackagePositionInJson(packageId, model);
+    }
 
-	private void addPackageToModel(Integer packageId, Model model) {
-		TrackResponse response = parcelService.getTrackInfo(packageId);
-		model.addAttribute("response", response);
-	}
+    private void addPackageToModel(Integer packageId, Model model) {
+        TrackResponse response = parcelService.getTrackInfo(packageId);
+        model.addAttribute("response", response);
+    }
 
 }
