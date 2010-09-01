@@ -28,8 +28,8 @@ public class TrackResponse {
         return new TrackResponse(Status.SUCCESS, parcel);
     }
 
-    public static TrackResponse failureResponse(Package parcel) {
-        return new TrackResponse(Status.FAILURE, parcel);
+    public static TrackResponse failureResponse() {
+        return new TrackResponse(Status.FAILURE, null);
     }
 
     public Integer getStatus() {
