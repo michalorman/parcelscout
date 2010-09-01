@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pl.michalorman.spu.model.TrackResponse;
+import pl.michalorman.spu.api.TrackResponse;
 import pl.michalorman.spu.service.PackageTrackService;
 
 @Controller

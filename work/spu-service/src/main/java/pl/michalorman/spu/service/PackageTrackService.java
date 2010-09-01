@@ -1,27 +1,21 @@
 package pl.michalorman.spu.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import pl.michalorman.spu.api.TrackResponse;
+import pl.michalorman.spu.dao.PackageDao;
 import pl.michalorman.spu.model.Package;
-import pl.michalorman.spu.model.Position;
-import pl.michalorman.spu.model.TrackResponse;
 
 @Service
 public class PackageTrackService {
 
-    public TrackResponse getTrackInfo(Integer parcelId) {
-        Position position = new Position();
-        position.setLatitude(53.43);
-        position.setLongitude(14.529);
+    @Autowired
+    private PackageDao packageDao;
 
-        Package parcel = new Package();
-        parcel.setId(parcelId);
-        parcel.setPosition(position);
-
-        TrackResponse response = new TrackResponse();
-        response.setPackage(parcel);
-
-        return response;
+    public TrackResponse getTrackInfo(Integer packageId) {
+        Package parcel = packageDao.findById(packageId);
+        return TrackResponse.successResponse(parcel);
     }
 
 }
