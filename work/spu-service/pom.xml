@@ -19,6 +19,7 @@
 
     <properties>
         <org.springframework.version>3.0.4.RELEASE</org.springframework.version>
+        <org.slf4j.version>1.6.1</org.slf4j.version>
 
         <pl.michalorman.spu.integration.host>localhost</pl.michalorman.spu.integration.host>
         <pl.michalorman.spu.integration.port>8080</pl.michalorman.spu.integration.port>
@@ -80,13 +81,30 @@
         <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.6.1</version>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j.version}</version>
         </dependency>
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.16</version>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>0.9.24</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+        <!-- Following declaration disables inclusion of commons-logging -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Testing -->
@@ -105,7 +123,9 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.2.141</version>
+            <version>1.2.142</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/h2-1.2.142.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -156,7 +176,9 @@
                 <version>2.6</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <pl.michalorman.spu.integration.url>${pl.michalorman.spu.integration.url}</pl.michalorman.spu.integration.url>
+                        <pl.michalorman.spu.integration.url>
+                            ${pl.michalorman.spu.integration.url}
+                        </pl.michalorman.spu.integration.url>
                     </systemPropertyVariables>
                 </configuration>
                 <executions>
@@ -177,9 +199,11 @@
                         <phase>prepare-package</phase>
                         <configuration>
                             <tasks>
-                                <copy file="${project.build.outputDirectory}/META-INF/persistence.xml" tofile="${project.build.outputDirectory}/META-INF/persistence.xml.bk"
+                                <copy file="${project.build.outputDirectory}/META-INF/persistence.xml" 
+                                    tofile="${project.build.outputDirectory}/META-INF/persistence.xml.bk"
                                     verbose="true" />
-                                <copy file="${basedir}/src/test/resources/META-INF/persistence.xml" tofile="${project.build.outputDirectory}/META-INF/persistence.xml"
+                                <copy file="${basedir}/src/test/resources/META-INF/persistence.xml" 
+                                    tofile="${project.build.outputDirectory}/META-INF/persistence.xml"
                                     overwrite="true" verbose="true" />
                             </tasks>
                         </configuration>
@@ -192,7 +216,8 @@
                         <phase>post-integration-test</phase>
                         <configuration>
                             <tasks>
-                                <copy file="${project.build.outputDirectory}/META-INF/persistence.xml.bk" tofile="${project.build.outputDirectory}/META-INF/persistence.xml"
+                                <copy file="${project.build.outputDirectory}/META-INF/persistence.xml.bk" 
+                                    tofile="${project.build.outputDirectory}/META-INF/persistence.xml"
                                     overwrite="true" verbose="true" />
                             </tasks>
                         </configuration>

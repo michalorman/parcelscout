@@ -26,14 +26,14 @@ public class PackageController {
 
     @RequestMapping(value = "/track.xml", method = RequestMethod.GET)
     public String getPackagePositionInXml(@RequestParam Integer packageId, Model model) {
-        logger.info("Received request for /track.xml with params: packageId={}", packageId);
+        logger.info("Received request for /track.xml with params: packageId='{}'", packageId);
         addPackageToModel(packageId, model);
         return "responseXmlView";
     }
 
     @RequestMapping(value = "/track.json", method = RequestMethod.GET)
     public String getPackagePositionInJson(@RequestParam Integer packageId, Model model) {
-        logger.info("Received request for /track.json with params: packageId={}", packageId);
+        logger.info("Received request for /track.json with params: packageId='{}'", packageId);
         addPackageToModel(packageId, model);
         return "responseJsonView";
     }
@@ -44,14 +44,15 @@ public class PackageController {
 
     @RequestMapping(value = "/track", method = RequestMethod.GET, headers = "content-type=application/xml")
     public String trackPackagePositionInXml(@RequestParam Integer packageId, Model model) {
-        logger.info("Received request for /track with content-type=application/xml and params: packageId={}", packageId);
+        logger.info("Received request for /track with content-type=application/xml and params: packageId='{}'",
+                packageId);
         addPackageToModel(packageId, model);
         return "responseXmlView";
     }
 
     @RequestMapping(value = "/track", method = RequestMethod.GET, headers = "content-type=application/json")
     public String trackPackagePositionInJson(@RequestParam Integer packageId, Model model) {
-        logger.info("Received request for /track with content-type=application/json and params: packageId={}",
+        logger.info("Received request for /track with content-type=application/json and params: packageId='{}'",
                 packageId);
         addPackageToModel(packageId, model);
         return "responseJsonView";

@@ -29,7 +29,7 @@ public abstract class BaseITTest {
         return execute(format("%s/track?packageId=%s", targetUrl, packageId), contentType);
     }
 
-    protected String execute(String url) throws HttpException, IOException {
+    private String execute(String url) throws HttpException, IOException {
         return execute(url, null);
     }
 
