@@ -100,7 +100,6 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.2.141</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -164,11 +163,13 @@
                 <executions>
                     <execution>
                         <id>copy-test-persistence</id>
-                        <phase>process-test-resources</phase>
+                        <phase>prepare-package</phase>
                         <configuration>
                             <tasks>
-                                <copy file="${project.build.outputDirectory}/META-INF/persistence.xml" tofile="${project.build.outputDirectory}/META-INF/persistence.xml.bk" verbose="true" />
-                                <copy file="${project.build.testOutputDirectory}/META-INF/persistence.xml" tofile="${project.build.outputDirectory}/META-INF/persistence.xml" verbose="true" />
+                                <copy file="${project.build.outputDirectory}/META-INF/persistence.xml" tofile="${project.build.outputDirectory}/META-INF/persistence.xml.bk"
+                                    verbose="true" />
+                                <copy file="${basedir}/src/test/resources/META-INF/persistence.xml" tofile="${project.build.outputDirectory}/META-INF/persistence.xml"
+                                    overwrite="true" verbose="true" />
                             </tasks>
                         </configuration>
                         <goals>
@@ -177,7 +178,7 @@
                     </execution>
                     <execution>
                         <id>restore-persistence</id>
-                        <phase>prepare-package</phase>
+                        <phase>post-integration-test</phase>
                         <configuration>
                             <tasks>
                                 <copy file="${project.build.outputDirectory}/META-INF/persistence.xml.bk" tofile="${project.build.outputDirectory}/META-INF/persistence.xml"
