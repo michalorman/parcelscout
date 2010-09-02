@@ -1,8 +1,7 @@
 package pl.michalorman.spu.service;
 
-import static java.lang.String.format;
-
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,7 @@ import pl.michalorman.spu.model.Package;
 @Service
 public class PackageTrackService {
 
-    private Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(PackageTrackService.class);
 
     @Autowired
     private PackageDao packageDao;
@@ -23,7 +22,7 @@ public class PackageTrackService {
         if (parcel != null) {
             return TrackResponse.successResponse(parcel);
         }
-        logger.warn(format("Requested package with id=%d not found", packageId));
+        logger.warn("Requested package with id={} not found", packageId);
         return TrackResponse.failureResponse();
     }
 

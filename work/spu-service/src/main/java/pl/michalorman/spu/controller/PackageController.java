@@ -1,8 +1,7 @@
 package pl.michalorman.spu.controller;
 
-import static java.lang.String.format;
-
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +15,7 @@ import pl.michalorman.spu.service.PackageTrackService;
 @Controller
 public class PackageController {
 
-    private Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(PackageController.class);
 
     @Autowired
     private PackageTrackService parcelService;
@@ -27,14 +26,14 @@ public class PackageController {
 
     @RequestMapping(value = "/track.xml", method = RequestMethod.GET)
     public String getPackagePositionInXml(@RequestParam Integer packageId, Model model) {
-        logger.info(format("Received request for /track.xml with params: packageId=%d", packageId));
+        logger.info("Received request for /track.xml with params: packageId={}", packageId);
         addPackageToModel(packageId, model);
         return "responseXmlView";
     }
 
     @RequestMapping(value = "/track.json", method = RequestMethod.GET)
     public String getPackagePositionInJson(@RequestParam Integer packageId, Model model) {
-        logger.info(format("Received request for /track.json with params: packageId=%d", packageId));
+        logger.info("Received request for /track.json with params: packageId={}", packageId);
         addPackageToModel(packageId, model);
         return "responseJsonView";
     }
@@ -45,16 +44,15 @@ public class PackageController {
 
     @RequestMapping(value = "/track", method = RequestMethod.GET, headers = "content-type=application/xml")
     public String trackPackagePositionInXml(@RequestParam Integer packageId, Model model) {
-        logger.info(format("Received request for /track with content-type=application/xml and params: packageId=%d",
-                packageId));
+        logger.info("Received request for /track with content-type=application/xml and params: packageId={}", packageId);
         addPackageToModel(packageId, model);
         return "responseXmlView";
     }
 
     @RequestMapping(value = "/track", method = RequestMethod.GET, headers = "content-type=application/json")
     public String trackPackagePositionInJson(@RequestParam Integer packageId, Model model) {
-        logger.info(format("Received request for /track with content-type=application/json and params: packageId=%d",
-                packageId));
+        logger.info("Received request for /track with content-type=application/json and params: packageId={}",
+                packageId);
         addPackageToModel(packageId, model);
         return "responseJsonView";
     }
