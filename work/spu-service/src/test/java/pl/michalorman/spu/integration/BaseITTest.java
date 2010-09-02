@@ -10,15 +10,23 @@ import java.io.InputStreamReader;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.junit.BeforeClass;
 
 public abstract class BaseITTest {
 
+    private static String targetUrl;
+
+    @BeforeClass
+    public static void setUp() {
+        targetUrl = System.getProperty("pl.michalorman.spu.integration.url");
+    }
+
     protected String executeGetByExtension(String extension, String packageId) throws HttpException, IOException {
-        return execute(format("http://localhost:8080/spu-service/track.%s?packageId=%s", extension, packageId));
+        return execute(format("%s/track.%s?packageId=%s", targetUrl, extension, packageId));
     }
 
     protected String executeGetByContentType(String contentType, String packageId) throws HttpException, IOException {
-        return execute(format("http://localhost:8080/spu-service/track?packageId=%s", packageId), contentType);
+        return execute(format("%s/track?packageId=%s", targetUrl, packageId), contentType);
     }
 
     protected String execute(String url) throws HttpException, IOException {
