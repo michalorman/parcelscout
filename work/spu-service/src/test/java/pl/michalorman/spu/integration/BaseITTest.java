@@ -37,7 +37,7 @@ public abstract class BaseITTest {
         HttpClient client = new HttpClient();
         GetMethod get = new GetMethod(url);
         if (contentType != null) {
-            get.addRequestHeader("Content-Type", contentType);
+            get.addRequestHeader("Accept", contentType);
         }
         client.executeMethod(get);
         return readResponse(get.getResponseBodyAsStream());
