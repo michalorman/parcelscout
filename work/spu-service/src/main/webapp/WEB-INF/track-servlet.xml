@@ -9,6 +9,14 @@
                 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
     <context:component-scan base-package="pl.michalorman.spu" />
+    
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+        <property name="interceptors">
+            <list>
+                <bean class="pl.michalorman.spu.web.interceptor.HttpRequestInterceptor" />
+            </list>
+        </property>
+    </bean>
 
     <!-- ======================================================================================================= -->
     <!-- Persistence beans -->

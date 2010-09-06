@@ -24,7 +24,7 @@
         <pl.michalorman.spu.integration.host>localhost</pl.michalorman.spu.integration.host>
         <pl.michalorman.spu.integration.port>8080</pl.michalorman.spu.integration.port>
         <pl.michalorman.spu.integration.url>
-            http://${pl.michalorman.spu.integration.host}:${pl.michalorman.spu.integration.port}/${project.build.finalName}/
+            http://${pl.michalorman.spu.integration.host}:${pl.michalorman.spu.integration.port}/${project.build.finalName}
         </pl.michalorman.spu.integration.url>
     </properties>
 
