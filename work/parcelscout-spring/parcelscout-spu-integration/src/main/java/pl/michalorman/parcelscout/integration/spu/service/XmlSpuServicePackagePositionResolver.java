@@ -1,15 +1,19 @@
-package pl.michalorman.parcelscout.service;
+package pl.michalorman.parcelscout.integration.spu.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import pl.michalorman.parcelscout.model.Position;
+import pl.michalorman.parcelscout.core.model.Position;
+import pl.michalorman.parcelscout.core.service.PackagePositionResolver;
 
-public class SpuServicePackagePositionResolver implements PackagePositionResolver {
+/**
+ * {@link pl.michalorman.parcelscout.core.service.PackagePositionResolver} that resolves package position using
+ * XML response format.
+ */
+public class XmlSpuServicePackagePositionResolver implements PackagePositionResolver {
 
-    public static final Logger logger = LoggerFactory.getLogger(SpuServicePackagePositionResolver.class); 
+    public static final Logger logger = LoggerFactory.getLogger(XmlSpuServicePackagePositionResolver.class);
 
     private String serviceUrl;
 

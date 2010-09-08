@@ -19,8 +19,8 @@
         <property name="resolvers">
             <map>
                 <entry key="SPU">
-                    <bean class="pl.michalorman.parcelscout.service.SpuServicePackagePositionResolver">
-                        <property name="serviceUrl" value="http://localhost:8100/spu-service/track" />
+                    <bean class="pl.michalorman.parcelscout.service.XmlSpuServicePackagePositionResolver">
+                        <property name="serviceUrl" value="http://localhost:8100/spu-service/track.xml" />
                     </bean>
                 </entry>
             </map>

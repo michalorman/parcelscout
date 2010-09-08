@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>pl.michalorman.parcelscout.core</groupId>
+    <artifactId>parcelscout-core</artifactId>
+    <packaging>jar</packaging>
+    <version>${pl.michalorman.parcelscout.version}</version>
+
+    <parent>
+        <artifactId>parcelscout-spring</artifactId>
+        <groupId>pl.michalorman.parcelscout</groupId>
+        <version>${pl.michalorman.parcelscout.version}</version>
+    </parent>
+
+    <build>
+        <finalName>parcelscout-core</finalName>
+    </build>
+</project>
