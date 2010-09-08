@@ -19,6 +19,14 @@ public class ResultSet {
         this.result = result;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public Result getResult() {
+        return result;
+    }
+
     public static ResultSet createSuccessfulResultSet(Result result) {
         return new ResultSet(result);
     }
@@ -27,5 +35,9 @@ public class ResultSet {
         ResultSet set = new ResultSet(null);
         set.status = FAILURE;
         return set;
+    }
+
+    public static ResultSet createSuccessfulResultSet(Integer packageId, double latitude, double longitude) {
+        return createSuccessfulResultSet(new Result(packageId, latitude, longitude));
     }
 }

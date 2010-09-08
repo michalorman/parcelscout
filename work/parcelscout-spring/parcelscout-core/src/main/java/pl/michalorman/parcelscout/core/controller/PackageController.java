@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.michalorman.parcelscout.core.api.ResultSet;
 import pl.michalorman.parcelscout.core.factory.PackagePositionResolverFactory;
 import pl.michalorman.parcelscout.core.service.PackagePositionResolver;
 
@@ -23,7 +24,8 @@ public class PackageController {
     public void resolvePackagePosition(@RequestParam String carrierId, @RequestParam Integer packageId, Model model) {
         logger.info("Package position requested for carrierId: '{}' and packageId: '{}'", carrierId, packageId);
         PackagePositionResolver resolver = packagePositionResolverFactory.createPackagePositionResolver(carrierId);
-        resolver.resolvePackagePosition(packageId);
+        ResultSet result = resolver.resolvePackagePosition(packageId);
+        model.addAttribute("ResultSet", result);
     }
 
 }

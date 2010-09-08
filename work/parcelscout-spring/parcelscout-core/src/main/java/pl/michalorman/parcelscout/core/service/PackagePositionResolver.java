@@ -1,9 +1,9 @@
 package pl.michalorman.parcelscout.core.service;
 
-import pl.michalorman.parcelscout.core.model.Position;
+import pl.michalorman.parcelscout.core.api.ResultSet;
 
 public interface PackagePositionResolver {
 
-    public Position resolvePackagePosition(Integer packageId);
+    public ResultSet resolvePackagePosition(Integer packageId);
 
 }

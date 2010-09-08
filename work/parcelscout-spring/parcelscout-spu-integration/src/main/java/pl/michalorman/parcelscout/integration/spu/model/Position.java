@@ -1,15 +1,14 @@
-package pl.michalorman.parcelscout.core.model;
+package pl.michalorman.parcelscout.integration.spu.model;
+
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
 public class Position {
 
+    @XStreamAsAttribute
     private double latitude;
 
+    @XStreamAsAttribute
     private double longitude;
-
-    public Position(double latitude, double longitude) {
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
 
     public double getLatitude() {
         return latitude;
