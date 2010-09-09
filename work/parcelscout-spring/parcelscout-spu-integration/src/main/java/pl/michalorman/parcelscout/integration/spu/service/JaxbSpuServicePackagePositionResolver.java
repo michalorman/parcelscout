@@ -12,9 +12,9 @@ import pl.michalorman.parcelscout.integration.spu.model.Response;
  * {@link pl.michalorman.parcelscout.core.service.PackagePositionResolver} that resolves package position using
  * XML response format.
  */
-public class XmlSpuServicePackagePositionResolver implements PackagePositionResolver {
+public class JaxbSpuServicePackagePositionResolver implements PackagePositionResolver {
 
-    public static final Logger logger = LoggerFactory.getLogger(XmlSpuServicePackagePositionResolver.class);
+    public static final Logger logger = LoggerFactory.getLogger(JaxbSpuServicePackagePositionResolver.class);
 
     private String serviceUrl;
 
