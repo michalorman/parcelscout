@@ -1,13 +1,13 @@
 package pl.michalorman.parcelscout.integration.spu.model;
 
-import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+import javax.xml.bind.annotation.XmlAttribute;
 
 public class Position {
 
-    @XStreamAsAttribute
+    @XmlAttribute
     private double latitude;
 
-    @XStreamAsAttribute
+    @XmlAttribute
     private double longitude;
 
     public double getLatitude() {

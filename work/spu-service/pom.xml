@@ -85,6 +85,7 @@
                         <configuration>
                             <server>tomcat-spu-service-prod</server>
                             <url>http://localhost:8100/manager</url>
+			    <path>/</path>
                         </configuration>
                     </plugin>
                 </plugins>

@@ -1,19 +1,22 @@
 package pl.michalorman.parcelscout.core.api;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+import javax.xml.bind.annotation.*;
 
-@XStreamAlias("ResultSet")
+@XmlRootElement(name = "ResultSet")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ResultSet {
 
     public static final String SUCCESS = "1";
     public static final String FAILURE = "2";
 
-    @XStreamAsAttribute
+    @XmlAttribute
     private String status = SUCCESS;
 
-    @XStreamAlias("Result")
+    @XmlElement(name = "Result")
     private Result result;
+
+    public ResultSet() {
+    }
 
     private ResultSet(Result result) {
         this.result = result;

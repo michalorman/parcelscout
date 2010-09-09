@@ -1,17 +1,20 @@
 package pl.michalorman.parcelscout.core.api;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
+import javax.xml.bind.annotation.XmlElement;
 
 public class Result {
 
-    @XStreamAlias("PackageID")
+    @XmlElement(name = "PackageID")
     private Integer packageId;
 
-    @XStreamAlias("Latitude")
+    @XmlElement(name = "Latitude")
     private double latitude;
 
-    @XStreamAlias("Longitude")
+    @XmlElement(name = "Longitude")
     private double longitude;
+
+    public Result() {
+    }
 
     public Result(Integer packageId, double latitude, double longitude) {
         this.packageId = packageId;

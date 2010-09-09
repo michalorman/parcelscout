@@ -1,12 +1,14 @@
 package pl.michalorman.parcelscout.integration.spu.model;
 
-import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 
 public class Package {
 
-    @XStreamAsAttribute
+    @XmlAttribute
     private Integer id;
 
+    @XmlElement
     private Position position;
 
     public Integer getId() {

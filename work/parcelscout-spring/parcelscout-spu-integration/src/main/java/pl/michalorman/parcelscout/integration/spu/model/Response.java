@@ -1,15 +1,15 @@
 package pl.michalorman.parcelscout.integration.spu.model;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+import javax.xml.bind.annotation.*;
 
-@XStreamAlias("response")
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Response {
 
-    @XStreamAsAttribute
+    @XmlAttribute
     private String status;
 
-    @XStreamAlias("package")
+    @XmlElement(name = "package")
     private Package parcel;
 
     public boolean isSuccessful() {
