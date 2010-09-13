@@ -22,6 +22,11 @@
     <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
         <property name="messageConverters">
             <list>
+                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+                    <property name="objectMapper">
+                        <bean class="pl.michalorman.springframework.web.json.JaxbJacksonObjectMapper" />
+                    </property>
+                </bean>
                 <bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
                     <constructor-arg ref="jaxbMarshaller" />
                 </bean>
@@ -37,8 +42,8 @@
         <property name="resolvers">
             <map>
                 <entry key="SPU">
-                    <bean class="pl.michalorman.parcelscout.integration.spu.service.JaxbSpuServicePackagePositionResolver">
-                        <property name="serviceUrl" value="http://localhost:8100/track.xml"/>
+                    <bean class="pl.michalorman.parcelscout.integration.spu.service.SpuServicePackagePositionResolver">
+                        <property name="serviceUrl" value="http://localhost:8100/track.json"/>
                     </bean>
                 </entry>
             </map>

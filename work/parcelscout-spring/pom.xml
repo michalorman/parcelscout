@@ -12,6 +12,10 @@
             <id>JBoss Maven Repository</id>
             <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
         </repository>
+        <repository>
+            <id>Codehaus Maven2 Repository</id>
+            <url>http://repository.codehaus.org/</url>
+        </repository>
     </repositories>
 
     <properties>
@@ -19,6 +23,7 @@
         
         <org.springframework.version>3.0.4.RELEASE</org.springframework.version>
         <org.slf4j.version>1.6.1</org.slf4j.version>
+        <org.codehaus.jackson.version>1.6.0</org.codehaus.jackson.version>
     </properties>
 
     <build>
@@ -99,7 +104,12 @@
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.5.6</version>
+            <version>${org.codehaus.jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-xc</artifactId>
+            <version>${org.codehaus.jackson.version}</version>
         </dependency>
 
         <!-- Logging -->

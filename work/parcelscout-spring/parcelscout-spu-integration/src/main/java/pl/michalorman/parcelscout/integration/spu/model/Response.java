@@ -1,5 +1,7 @@
 package pl.michalorman.parcelscout.integration.spu.model;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 
 @XmlRootElement
@@ -7,9 +9,13 @@ import javax.xml.bind.annotation.*;
 public class Response {
 
     @XmlAttribute
+//    Using the jackson-xc the object may be unmarshalled using JAXB annotations, thus there is no need
+//    to have Jackson specific annotations.
+//    @JsonProperty("status")
     private String status;
 
     @XmlElement(name = "package")
+//    @JsonProperty("package")
     private Package parcel;
 
     public boolean isSuccessful() {

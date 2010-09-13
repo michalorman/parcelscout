@@ -14,3 +14,4 @@ work/tomcat-6.0.29-spu-8100/work/
 bin/
 .idea/
 *.iml
+*~*
